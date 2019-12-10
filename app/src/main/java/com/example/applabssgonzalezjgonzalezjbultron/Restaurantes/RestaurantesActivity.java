@@ -105,7 +105,7 @@ public class RestaurantesActivity extends AppCompatActivity {
         if (db != null) {
 
             try {
-
+                //Insertar Restaurantes
                 db.execSQL("INSERT INTO restaurantes (id, nombre, horario, ubicacion, catego) " + "VALUES ('" + 1 + "', '" + "KFC" + "', '" + "10:00 - 21:00" + "' , '" + "Centennial Plaza" + "' , '" + "Comida Rápida" + "')");
                 db.execSQL("INSERT INTO restaurantes (id, nombre, horario, ubicacion, catego) " + "VALUES ('" + 2 + "', '" + "Subway" + "', '" + "6:00 - 22:00" + "' , '" + "Camino de cruces" + "' , '" + "Emparedados" + "')");
                 db.execSQL("INSERT INTO restaurantes (id, nombre, horario, ubicacion, catego) " + "VALUES ('" + 3 + "', '" + "Burger King" + "', '" + "10:00 - 22:00" + "' , '" + "El Dorado" + "' , '" + "Comida Rápida" + "')");
