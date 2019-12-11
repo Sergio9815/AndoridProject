@@ -5,9 +5,11 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.ContextMenu;
 import android.view.MenuInflater;
@@ -24,7 +26,9 @@ import android.widget.Toast;
 import com.example.applabssgonzalezjgonzalezjbultron.Adapters.RestaurantsAdapters;
 import com.example.applabssgonzalezjgonzalezjbultron.Entidades.Restaurants;
 import com.example.applabssgonzalezjgonzalezjbultron.Helpers.restaurantesHelper;
+import com.example.applabssgonzalezjgonzalezjbultron.Login.RegistroActivity;
 import com.example.applabssgonzalezjgonzalezjbultron.R;
+import com.example.applabssgonzalezjgonzalezjbultron.Restaurantes.Ubicacion;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -47,6 +51,7 @@ public class FiltrosActivity extends AppCompatActivity {
         this.LoadListViewTemplate();
         this.barraDeMenu();
         this.registerForContextMenu(lstRestaurantes);
+        this.Ubicacion();
         spnOpcion.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
@@ -77,6 +82,26 @@ public class FiltrosActivity extends AppCompatActivity {
             }
         });
     }
+
+
+    private void Ubicacion() {
+        final Intent z = new Intent(this, RegistroActivity.class);
+
+        lstRestaurantes.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            public void onItemClick(AdapterView<?> a, View v, int position, long id) {
+                String nomRes =((Restaurants) a.getItemAtPosition(position)).getNombre();
+
+                Ubicacion u = new Ubicacion();
+                u.setUb(nomRes);
+                String n = u.getUb();
+                Uri uri = Uri.parse(n);
+                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                startActivity(intent);
+            }
+        });
+
+    }
+
     private void Inicializar_Controles(){
         spnOpcion = (Spinner)findViewById(R.id.spnEs);
         lstRestaurantes = (ListView)findViewById(R.id.lst_comprar_articulos);
@@ -84,6 +109,7 @@ public class FiltrosActivity extends AppCompatActivity {
         EditexValor = (EditText)findViewById(R.id.editexValor);
 
     }
+
     private void Cargar_Spinner(){
         List<String> Tipo_filtrado = new ArrayList<>();
         Tipo_filtrado.add("Seleccione el tipo de filtrado");

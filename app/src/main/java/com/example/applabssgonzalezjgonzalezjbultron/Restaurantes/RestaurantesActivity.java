@@ -51,7 +51,7 @@ public class RestaurantesActivity extends AppCompatActivity {
         this.insertarDatos();
         this.barraDeMenu();
         this.LoadListViewTemplate();
-        this.lista();
+        this.Ubicacion();
 
         search.setOnClickListener(new View.OnClickListener(){
            public void onClick(View view){
@@ -137,7 +137,7 @@ public class RestaurantesActivity extends AppCompatActivity {
         this.LoadListViewTemplate();
     }
 
-    private void lista() {
+    private void Ubicacion() {
         final Intent z = new Intent(this, RegistroActivity.class);
 
         lstRest.setOnItemClickListener(new AdapterView.OnItemClickListener() {
