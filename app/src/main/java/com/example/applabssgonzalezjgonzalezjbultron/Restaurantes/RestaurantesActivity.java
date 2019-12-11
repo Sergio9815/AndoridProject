@@ -33,7 +33,6 @@ import java.util.List;
 
 public class RestaurantesActivity extends AppCompatActivity {
 
-    int maxID;
     ListView lstRest;
     EditText ediCodigo;
     Button search;
