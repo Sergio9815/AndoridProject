@@ -14,12 +14,13 @@
         android:roundIcon="@drawable/ico"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".BusquedaAvanzada.FiltrosActivity"></activity>
         <activity
             android:name=".Categorias.FiltroCategoriasActivity"
-            android:parentActivityName=".Categorias.CategoriasActivity"/>
+            android:parentActivityName=".Categorias.CategoriasActivity" />
         <activity
             android:name=".Categorias.CategoriasActivity"
-            android:parentActivityName=".Restaurantes.RestaurantesActivity"/>
+            android:parentActivityName=".Restaurantes.RestaurantesActivity" />
         <activity android:name=".Login.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
