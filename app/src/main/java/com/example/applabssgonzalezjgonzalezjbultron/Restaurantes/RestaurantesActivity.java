@@ -21,6 +21,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.example.applabssgonzalezjgonzalezjbultron.Adapters.RestaurantsAdapters;
+import com.example.applabssgonzalezjgonzalezjbultron.BusquedaAvanzada.FiltrosActivity;
 import com.example.applabssgonzalezjgonzalezjbultron.Categorias.CategoriasActivity;
 import com.example.applabssgonzalezjgonzalezjbultron.Entidades.Restaurants;
 import com.example.applabssgonzalezjgonzalezjbultron.Helpers.restaurantesHelper;
@@ -223,6 +224,11 @@ public class RestaurantesActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {//ACCIONES DE LOS BOTONES DE LA BARRA DE MENU
         switch (item.getItemId()){
+            case R.id.busq:
+                Log.i("ActionBar","Búsqueda avanzada");
+                Intent h = new Intent(this, FiltrosActivity.class);
+                startActivity(h);
+                break;
             case R.id.categ:
                 Log.i("ActionBar","Categorías");
                 Intent j = new Intent(this, CategoriasActivity.class);
